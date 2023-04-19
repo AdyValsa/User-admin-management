@@ -1,7 +1,9 @@
+const formidable = require("express-formidable")
 const router = require("express").Router();
 
-const { userRegistration } = require("../controllers/users");
+const { registerUser } = require("../controllers/users");
 
-router.post("/register", userRegistration)
+router.post("/register",formidable(), registerUser)
+router.get("/activate/:token", saveUser)
 
 module.exports = router

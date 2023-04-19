@@ -1,5 +1,6 @@
 const {Schema,model} = require("mongoose");
 const { default: isEmail } = require("validator/lib/isEmail");
+const validator = require("validator")
 
 const userSchema = new Schema ({
     name: {
@@ -15,10 +16,7 @@ const userSchema = new Schema ({
         unique:true,
         trim:true,
         lowercase:true,
-        validate: {
-            validator: isEmail(this)
-            },
-            message: "Please enter a valid email",
+        validate: validator.isEmail(this.email)
         },
     password: {
         type:String,
@@ -42,8 +40,11 @@ const userSchema = new Schema ({
         default:Date.now,
     },
     image: {
-        data: Buffer,
-        contentType: String, 
+        type: String
+    },
+    isBanned: {
+        type: Boolean,
+        default: false
     }
 })
 
