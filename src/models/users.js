@@ -1,5 +1,4 @@
 const {Schema,model} = require("mongoose");
-const { default: isEmail } = require("validator/lib/isEmail");
 const validator = require("validator")
 
 const userSchema = new Schema ({
@@ -38,9 +37,6 @@ const userSchema = new Schema ({
     created_on: {
         type:Date,
         default:Date.now,
-    },
-    image: {
-        type: String
     },
     isBanned: {
         type: Boolean,

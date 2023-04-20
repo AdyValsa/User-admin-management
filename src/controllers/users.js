@@ -51,11 +51,20 @@ const registerUser = async (req, res) => {
     }
 }
 
-const saveUser = (req,res) => {
+const saveUser = async (req,res) => {
     try {
-        console.log(req.params.token)
+        await console.log(req.fields.token)
+/*         await jwt.verify(req.body?.token, dev.app.jwtUserKey, function async (err, decoded) {
+        console.log(decoded) // bar */
+        /* const {name, email , hashedPassword, phone } = decoded */
+      /*   try {
+            dev.db.url.collection.insertOne(User,{name,email,hashedPassword,phone});
+         } catch (e) {
+            console.log(e);
+         }; */
+/* } ); */
     } catch (error) {
-        
+        console.log(error)
     }
 
 }
